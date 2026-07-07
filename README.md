@@ -10,3 +10,18 @@ The core questions being explored:
 - Where is the right boundary between what gets published (in `content/`) and what stays private?
 
 This is not a production site. It's the workshop where the production setup gets built.
+
+## Local development
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) and [just](https://github.com/casey/just).
+
+```sh
+just build    # build the Docker image
+just serve    # build + serve at http://localhost:8080
+just stop     # stop the container
+just logs     # tail container logs
+just reset    # stop, rebuild, restart
+just shell    # open a shell in the running container
+```
+
+The Docker image clones [Quartz v5](https://github.com/jackyzha0/quartz), installs dependencies, copies your `content/` and `quartz.config.yaml`, then serves the built site. Any change to content or config requires a rebuild (`just reset`).
