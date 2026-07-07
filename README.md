@@ -25,3 +25,11 @@ just shell    # open a shell in the running container
 ```
 
 The Docker image clones [Quartz v5](https://github.com/jackyzha0/quartz), installs dependencies, copies your `content/` and `quartz.config.yaml`, then serves the built site. Any change to content or config requires a rebuild (`just reset`).
+
+## Deployment
+
+Pushes to `main` that modify `content/` or `.github/workflows/deploy.yml` trigger a [GitHub Actions](https://github.com/features/actions) workflow that builds and deploys the site to GitHub Pages.
+
+The workflow clones Quartz v5, installs dependencies, builds the site, and publishes the `public/` directory. Dependency and plugin caches are persisted across runs via `actions/cache`.
+
+**One-time setup:** Enable GitHub Pages in your repo settings (Settings → Pages → Source: **GitHub Actions**).
