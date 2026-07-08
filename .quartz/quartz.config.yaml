@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: "~/untitled"
+  pageTitle: on-obsidian-vaults
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics: null
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: lahgzz.github.io/obsidian-vaults
   ignorePatterns:
     - private
     - templates
     - .obsidian
+    - .clippings
   theme:
     fontOrigin: googleFonts
     cdnCaching: false
     typography:
-      title: Syne Mono
       header: Schibsted Grotesk
       body: Source Sans Pro
       code: IBM Plex Mono
@@ -61,14 +61,24 @@ plugins:
   - source: github:quartz-community/obsidian-flavored-markdown
     enabled: true
     options:
+      comments: false
+      highlight: false
+      wikilinks: false
+      callouts: false
+      mermaid: false
+      parseTags: false
+      parseArrows: false
+      parseBlockReferences: false
       enableInHtmlEmbed: false
-      enableCheckbox: true
+      enableYouTubeEmbed: false
+      enableVideoEmbed: false
+      enableCheckbox: false
     order: 30
   - source: github:quartz-community/github-flavored-markdown
     enabled: true
     order: 40
   - source: github:quartz-community/table-of-contents
-    enabled: false
+    enabled: true
     order: 50
     layout:
       position: right
@@ -131,7 +141,7 @@ plugins:
       position: left
       priority: 50
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -195,7 +205,7 @@ plugins:
       position: afterBody
       priority: 10
   - source: github:quartz-community/footer
-    enabled: false
+    enabled: true
     options:
       links:
         GitHub: https://github.com/jackyzha0/quartz
@@ -232,11 +242,11 @@ plugins:
       priority: 15
       display: all
   - source: github:quartz-community/unlisted-pages
-    enabled: true
+    enabled: false
     options: {}
     order: 45
   - source: github:quartz-community/encrypted-pages
-    enabled: true
+    enabled: false
     options:
       iterations: 600000
       passwordField: password
@@ -253,6 +263,20 @@ plugins:
       position: afterBody
       priority: 50
       display: all
+  - source: github:quartz-community/obsidian-plugin-excalidraw
+    enabled: false
+    options:
+      enableInteraction: true
+      darkMode: auto
+      exportPadding: 20
+    order: 50
+  - source:
+      name: quartz-themes
+      repo: github:saberzero1/quartz-themes
+      subdir: plugin
+    enabled: true
+    options:
+      theme: default
 layout:
   groups:
     toolbar:
