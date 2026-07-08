@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - content/**
+      - .quartz/**
       - .github/workflows/deploy.yml
   workflow_dispatch:
 
