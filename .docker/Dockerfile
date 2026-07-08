@@ -11,7 +11,7 @@ RUN git clone --branch v5 --depth 1 https://github.com/jackyzha0/quartz.git . &&
 RUN rm -rf content/*
 
 COPY content content
-COPY quartz.config.yaml quartz.config.yaml
+COPY .quartz/quartz.config.yaml quartz.config.yaml
 
 EXPOSE 8080
 CMD ["npx", "quartz", "build", "--serve", "--port", "8080"]
