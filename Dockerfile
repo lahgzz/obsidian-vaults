@@ -10,7 +10,6 @@ RUN git clone --branch v5 --depth 1 https://github.com/jackyzha0/quartz.git . &&
 
 RUN rm -rf content/*
 
-# on film
 COPY content content
 COPY quartz.config.yaml quartz.config.yaml
 
