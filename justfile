@@ -1,4 +1,4 @@
-image := "test"
+image := "on-obsidian-vaults"
 
 # ── local env ────────────────────────────────────────────────────────────────
 
@@ -7,7 +7,7 @@ image := "test"
 build:
     docker build -f .docker/Dockerfile -t {{image}} .
 
-# Build and serve at http://localhost:8080
+# Serve at http://localhost:8080
 [group('local')]
 serve: build
     docker run --rm -d -p 8080:8080 --name {{image}} {{image}}
@@ -16,11 +16,6 @@ serve: build
 [group('local')]
 shell:
     docker exec -it {{image}} sh
-
-# Open a bash terminal on running container
-[group('local')]
-bash:
-    docker run -it {{image}} bash
 
 # Stop the running container
 [group('local')]
@@ -42,7 +37,7 @@ logs:
 
 # Copy build artifacts from image without running container
 [group('local')]
-copy-files: build
+copy-artifacts: build
     docker create --name {{image}}-copy {{image}}
     docker cp {{image}}-copy:/quartz/package-lock.json .quartz/package-lock.json
     docker cp {{image}}-copy:/quartz/package.json .quartz/package.json
